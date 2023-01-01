@@ -4,7 +4,7 @@ class Solution:
         c=set()
         s=list(s.split())
         f=0
-        print(a,s)
+        
         if len(pattern)!=len(s):
             return False
         for i in range(len(pattern)):
@@ -21,7 +21,7 @@ class Solution:
                 else:
                     a[pattern[i]]=s[i]
                     c.add(s[i])
-        print(a,s)
+        
         if f==1:
             return False
         else:
