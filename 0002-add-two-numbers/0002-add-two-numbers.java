@@ -11,23 +11,23 @@
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
         ListNode head=null;
-        
+        ListNode curr=null;
         int c=0;
         
         while(l1!=null && l2!=null)
         {
-            ListNode temp=head;
+            
             ListNode n=new ListNode(((l1.val+l2.val+c)%10));
             
             c=(l1.val+l2.val+c)/10;
             
-            if(head==null)
+            if(head==null){
                 head=n;
+                curr=head;
+            }
             else{
-            while(temp.next!=null)
-                temp=temp.next;
-            temp.next=n;    
-                
+            curr.next=n;  
+                curr=curr.next;
             }
             System.out.print(l1.val);
             System.out.print(l2.val);
@@ -47,23 +47,24 @@ class Solution {
                
                 while(l1!=null)
                 {
-                    ListNode temp=head;
+                    
                     ListNode n=new ListNode((l1.val+c)%10);
                     
                     c=(l1.val+c)/10;
                     
                     
-                    if(head==null)
-                        head=n;
-                    else
-                    {
-                        while(temp.next!=null)
-                            temp=temp.next;
-                        temp.next=n;
-                    }
+                if(head==null){
+                    head=n;
+                    curr=head;
+                }
+                else{
+                curr.next=n;    
+                curr=curr.next;
+                }
                     l1=l1.next;
                 }
-                    
+                
+    
             }
             else if(l2!=null)
             {
@@ -74,15 +75,13 @@ class Solution {
                     
                     c=(l2.val+c)/10;
                     
-                    
-                    if(head==null)
-                        head=n;
-                    else
-                    {
-                        while(temp.next!=null)
-                            temp=temp.next;
-                        temp.next=n;
-                    }
+                if(head==null){
+                head=n;
+                curr=head; }
+                else{
+                curr.next=n;  
+                    curr=curr.next;
+                }
                     l2=l2.next;
                 }
                 
