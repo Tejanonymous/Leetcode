@@ -25,19 +25,19 @@ class Solution {
             return 0; // Base case: 0 steps needed for 0 or 1
         }
         if (isPrime(n)) {
-            return n; // Base case: n is prime, so n steps needed
+            return n;
         }
         
-        int min = n; // Initialize min with n
         
-        // Check divisibility with numbers starting from 2
+        
+        
         for (int i = 2; i * i <= n; i++) {
             if (n % i == 0) {
-                int steps = i + minSteps(n / i);
-                min = Math.min(min, steps);
+                return i + minSteps(n / i);
+                
             }
         }
         
-        return min;
+        return 0;
     }
 }
